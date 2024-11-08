@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Formulaire d'Admission Universitaire</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Resetting some styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            max-width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 120px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="url"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 6px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="url"]:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+            background-color: #fff;
+        }
+
+        .btn-next,
+        .btn-prev,
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-next:hover,
+        .btn-prev:hover,
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: white;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color:#b41b1b;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        
+        .note {
+            background-color: #e7f3fe;
+            color: #31708f;
+            padding: 15px;
+            border-left: 5px solid #31708f;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            max-width: 100%;
+            margin-bottom: 50px; /* Augmentez l'espace en bas */
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: white;
+            width: 100%;
+            position: relative; /* Change position to relative */
+        }
+        
+        /* Agrandissement pour les écrans moyens (tablettes et petits ordinateurs) */
+        @media (min-width: 768px) {
+            .container {
+                width: 600px; /* Largeur augmentée pour les écrans moyens */
+            }
+        }
+        
+        /* Agrandissement pour les grands écrans (ordinateurs de bureau et grands écrans) */
+        @media (min-width: 1024px) {
+            .container {
+                width: 800px; /* Largeur encore augmentée pour les écrans larges */
+            }
+        }
+        
+        /* Agrandissement supplémentaire pour les très grands écrans */
+        @media (min-width: 1440px) {
+            .container {
+                width: 1000px; /* Largeur encore plus grande pour les très grands écrans */
+            }
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <h1>Formulaire d'Admission</h1>
+        <form id="admissionForm" onsubmit="handleFormSubmit(event)">
+
+            <!-- Étape 1: Informations Personnelles -->
+            <div class="form-step" id="step-1" style="display:block;">
+                <h2>Étape 1: Informations Personnelles</h2>
+                <div class="note">**Veuillez vous assurer de remplir le formulaire avec vos informations exactes**</div>
+                <div class="form-group">
+                    <label for="nom">Nom Complet</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="dateNaissance">Date de Naissance</label>
+                    <input type="date" id="dateNaissance" name="dateNaissance" required>
+                </div>
+                <div class="form-group">
+                    <label for="sexe">Sexe</label>
+                    <select id="sexe" name="sexe" required>
+                        <option value="">Sélectionner</option>
+                        <option value="homme">Homme</option>
+                        <option value="femme">Femme</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nationalite">Nationalité</label>
+                    <input type="text" id="nationalite" name="nationalite" required>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse Postale</label>
+                    <input type="text" id="adresse" name="adresse" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" required>
+                </div>
+                <button type="button" class="btn-next" onclick="nextStep(1)">Suivant</button>
+            </div>
+
+            <!-- Étape 2: Parcours Académique -->
+            <div class="form-step" id="step-2">
+                <h2>Étape 2: Parcours Académique</h2>
+                <div class="form-group">
+                    <label for="etablissement">Établissement Actuel</label>
+                    <input type="text" id="etablissement" name="etablissement" required>
+                </div>
+                <div class="form-group">
+                    <label for="diplome">Diplôme Visé</label>
+                    <input type="text" id="diplome" name="diplome" required>
+                </div>
+                <div class="form-group">
+                    <label for="releves">Relevés de Notes</label>
+                    <input type="file" id="releves" name="releves" accept=".pdf,.doc,.docx" required>
+                </div>
+                <button type="button" class="btn-prev" onclick="prevStep(2)">Retour</button>
+                <button type="button" class="btn-next" onclick="nextStep(2)">Suivant</button>
+            </div>
+
+            <!-- Étape 3: Expérience et Activités -->
+            <div class="form-step" id="step-3">
+                <h2>Étape 3: Expérience et Activités Parascolaires</h2>
+                <div class="form-group">
+                    <label for="experience">Expérience Professionnelle</label>
+                    <textarea id="experience" name="experience" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="activites">Activités Extrascolaires</label>
+                    <textarea id="activites" name="activites" rows="4" required></textarea>
+                </div>
+                <button type="button" class="btn-prev" onclick="prevStep(3)">Retour</button>
+                <button type="button" class="btn-next" onclick="nextStep(3)">Suivant</button>
+            </div>
+
+            <!-- Étape 4: Compétences Linguistiques -->
+            <div class="form-step" id="step-4">
+                <h2>Étape 4: Compétences Linguistiques</h2>
+                <div class="form-group">
+                    <label for="langues">Langues Maîtrisées</label>
+                    <textarea id="langues" name="langues" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="certifLangue">Certificat de Langue (ex: TOEFL, IELTS)</label>
+                    <input type="file" id="certifLangue" name="certifLangue" accept=".pdf,.doc,.docx">
+                </div>
+                <button type="button" class="btn-prev" onclick="prevStep(4)">Retour</button>
+                <button type="button" class="btn-next" onclick="nextStep(4)">Suivant</button>
+            </div>
+
+            <!-- Étape 5: Recommandations -->
+            <div class="form-step" id="step-5">
+                <h2>Étape 5: Recommandations</h2>
+                <div class="form-group">
+                    <label for="recommandation">Lettre de Recommandation</label>
+                    <input type="file" id="recommandation" name="recommandation" accept=".pdf,.doc,.docx" required>
+                </div>
+                <button type="button" class="btn-prev" onclick="prevStep(5)">Retour</button>
+                <button type="submit" class="btn-submit" onclick="paiement.html">soumettre et continuer</button>
+            </div>
+
+           
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 HAVARD UNIVERSITY | Tous droits réservés</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+    
+            // Ajoutez ici toute logique de validation ou de traitement si nécessaire
+    
+            // Redirection vers une autre page après la soumission
+            window.location.href = "PAIEMENT.html"; // Remplacez par l'URL de votre page de redirection
+        }
+        let currentStep = 1;
+
+        function nextStep(step) {
+            if (validateStep(step)) {
+                document.getElementById(`step-${step}`).style.display = 'none';
+                currentStep++;
+                document.getElementById(`step-${currentStep}`).style.display = 'block';
+            }
+        }
+
+        function prevStep(step) {
+            document.getElementById(`step-${step}`).style.display = 'none';
+            currentStep--;
+            document.getElementById(`step-${currentStep}`).style.display = 'block';
+        }
+
+        function validateStep(step) {
+            const formStep = document.getElementById(`step-${step}`);
+            const inputs = formStep.querySelectorAll('input, textarea');
+            let valid = true;
+
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    valid = false;
+                    input.reportValidity();
+                }
+            });
+
+            return valid;
+        }
+        
+    </script>
+</body>
+</html>
