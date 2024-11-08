@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <title>Bienvenue sur le site officiel de l'Université d'HARVARD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles de base pour le corps de la page */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    
+        /* Styles de l'en-tête */
+        header {
+            background-color: #010407;
+            color: white;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Conteneur de l'en-tête */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    
+        /* Style du logo */
+        .logo img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 0;
+        }
+    
+        /* Style du menu hamburger */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 30px;
+            color: white;
+            
+        }
+    
+        /* Styles de la barre de navigation */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+    
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+    
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+    
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    
+        /* Styles pour l'affichage du menu hamburger sur petit écran */
+        @media (max-width: 768px) {
+            .container {
+                justify-content: space-between; /* Garder l'espacement entre le logo et le hamburger */
+            }
+    
+            .logo img {
+                width: 160px; /* Réduire la taille du logo sur petits écrans */
+            }
+    
+            .menu-toggle {
+                display: block; /* Afficher le hamburger sur petit écran */
+                margin-left: 150px; /* Espace maximal de 200px entre le logo et le hamburger */
+            }
+    
+            nav {
+                display: none; /* Masquer le menu par défaut sur petit écran */
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                background-color: #010407;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                left: 0;
+                padding: 20px 0;
+            }
+    
+            nav.active {
+                display: flex; /* Afficher le menu lorsque "active" */
+            }
+    
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            nav a {
+                padding: 15px;
+            }
+    
+            /* Réduire l'image d'accueil sur petits écrans */
+            .hero {
+                padding: 30px 20px; /* Réduire les espaces internes */
+                background-size: cover; /* Adapter l'image à la taille de l'écran */
+                background-position: center; /* Centrer l'image */
+            }
+    
+            .hero img {
+                width: 70%; /* Réduire la taille de l'image pour occuper toute la largeur de l'écran */
+                height: auto;
+            }
+        }
+    
+        /* Section Hero */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 50px 10px;
+            color: rgb(49, 18, 18);
+            background: url('img5.jpg') no-repeat center center/cover;
+            flex-grow: 0;
+        }
+    
+        /* Section des programmes */
+        .programs {
+            padding: 60px 20px;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+    
+        .programs h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+    
+        .program-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    
+        .program {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 280px; /* Ajuster la largeur des programmes */
+            max-width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 350px; /* Hauteur fixe */
+            overflow: hidden;
+        }
+    
+        .program h3 {
+            font-size: 1.25rem;
+            color: #ca3d12;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+    
+        .program p {
+            font-size: 1rem;
+            color: #555;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 100px; /* Limite la hauteur du texte */
+        }
+    
+        .program img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+    
+        .program:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Section des témoignages */
+        .testimonials {
+            padding: 60px 20px;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+    
+        .testimonials h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+    
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    
+        .testimonial-container blockquote {
+            background-color: #ffffff;
+            border-left: 5px solid #ca3d12;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+    
+        .testimonial-container blockquote:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+    
+        .testimonial-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+    
+        blockquote div {
+            font-style: italic;
+            color: #332f2f;
+        }
+    
+        blockquote footer {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #7e6363;
+        }
+    
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #0a0a0a;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo">
+            </div>
+            <div class="menu-toggle" id="menuToggle">☰</div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    
+                    <li><a href="#">Programmes</a></li>
+                    <li><a href="#">Recherche</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Événements</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>HAVARD UNIVERSITY</h1>
+            <div class="buttons">
+                <a href="admission-form.html" class="btn admission">Demande d'Admission</a>
+                <a href="admission-form.html" class="btn scholarship">Demande de Bourse</a>
+            </div>
+        </section>
+        <!-- Other content sections -->
+       
+
+        <section class="about">
+            <h2 color="black" >À propos de nous</h2>
+            <h3>Nous sommes une institution dédiée à l'excellence académique et à la recherche de pointe, formant des leaders de demain dans divers domaines.</h3>
+            <img src="about-image.jpg" alt="À propos de l'université" style="width: 80%; max-width: 600px; margin-top: 20px;">
+        </section>
+
+        <section class="programs">
+            <h2>Nos Programmes</h2>
+            <div class="program-list">
+                <div class="program">
+                    <img src="img1.webp" alt="Arts et sciences">
+                    <h3>Arts et Sciences</h3>
+                    <p>Explorez la créativité et l'innovation à travers nos programmes variés.</p>
+                </div>
+                <div class="program">
+                    <img src="sciences.jpg" alt="Ingénierie">
+                    <h3>Ingénierie</h3>
+                    <p>Développez des compétences techniques essentielles pour relever les défis du monde moderne.</p>
+                </div>
+                <div class="program">
+                    <img src="engineering.png" alt="Sciences Sociales">
+                    <h3>Sciences Sociales</h3>
+                    <p>Comprenez les dynamiques sociales et culturelles qui façonnent notre société.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Témoignages</h2>
+            <div class="testimonial-container">
+                <blockquote>
+                    <img class="testimonial-image" src="F1.jpeg" alt="Alice Dupont - Photo de profil">
+                    <div>
+                        "Étudier ici m'a ouvert des portes que je n'aurais jamais imaginées."
+                        <footer>- Alice Dupont</footer>
+                    </div>
+                </blockquote>
+                <blockquote>
+                    <img class="testimonial-image" src="M1.jpg" alt="Marc Tremblay - Photo de profil">
+                    <div>
+                        "Les opportunités de recherche sont incroyables et enrichissantes."
+                        <footer>- Marc Tremblay</footer>
+                    </div>
+                </blockquote>
+                <blockquote>
+                    <img class="testimonial-image" src="F2.jpeg" alt="Sophie Martin - Photo de profil">
+                    <div>
+                        "L'environnement d'apprentissage est stimulant et motivant."
+                        <footer>- Sophie Martin</footer>
+                    </div>
+                </blockquote>
+                <blockquote>
+                    <img class="testimonial-image" src="M2.jpeg" alt="Hugo Bernard - Photo de profil">
+                    <div>
+                        "Je n'aurais jamais imaginé rencontrer autant de personnes inspirantes."
+                        <footer>- Hugo Bernard</footer>
+                    </div>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+
+
+    </main>
+
+    <footer>
+        <p>© 2024 HAVARD UNIVERSITY | Tous droits réservés</p>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
