@@ -219,110 +219,128 @@
             <img src="logo2.png" alt="Logo">
         </div>
         <h1>Formulaire d'Admission</h1>
-        <form id="admissionForm" onsubmit="handleFormSubmit(event)">
+       <form id="admissionForm" onsubmit="handleFormSubmit(event)">
 
-            <!-- Étape 1: Informations Personnelles -->
-            <div class="form-step" id="step-1" style="display:block;">
-                <h2>Étape 1: Informations Personnelles</h2>
-                <div class="note">**Veuillez vous assurer de remplir le formulaire avec vos informations exactes**</div>
-                <div class="form-group">
-                    <label for="nom">Nom Complet</label>
-                    <input type="text" id="nom" name="nom" required>
-                </div>
-                <div class="form-group">
-                    <label for="dateNaissance">Date de Naissance</label>
-                    <input type="date" id="dateNaissance" name="dateNaissance" required>
-                </div>
-                <div class="form-group">
-                    <label for="sexe">Sexe</label>
-                    <select id="sexe" name="sexe" required>
-                        <option value="">Sélectionner</option>
-                        <option value="homme">Homme</option>
-                        <option value="femme">Femme</option>
-                        <option value="autre">Autre</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="nationalite">Nationalité</label>
-                    <input type="text" id="nationalite" name="nationalite" required>
-                </div>
-                <div class="form-group">
-                    <label for="adresse">Adresse Postale</label>
-                    <input type="text" id="adresse" name="adresse" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="telephone">Téléphone</label>
-                    <input type="tel" id="telephone" name="telephone" required>
-                </div>
-                <button type="button" class="btn-next" onclick="nextStep(1)">Suivant</button>
-            </div>
+    <!-- Étape 1: Informations Personnelles -->
+    <div class="form-step" id="step-1" style="display:block;">
+        <h2>Étape 1: Informations Personnelles</h2>
+        <div class="note">**Veuillez vous assurer de remplir le formulaire avec vos informations exactes**</div>
+        <div class="form-group">
+            <label for="nom">Nom Complet</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="form-group">
+            <label for="dateNaissance">Date de Naissance</label>
+            <input type="date" id="dateNaissance" name="dateNaissance" required>
+        </div>
+        <div class="form-group">
+            <label for="sexe">Sexe</label>
+            <select id="sexe" name="sexe" required>
+                <option value="">Sélectionner</option>
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+                <option value="autre">Autre</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nationalite">Nationalité</label>
+            <input type="text" id="nationalite" name="nationalite" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse Postale</label>
+            <input type="text" id="adresse" name="adresse" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" required>
+        </div>
+        <button type="button" class="btn-next" onclick="nextStep(1)">Suivant</button>
+    </div>
 
-            <!-- Étape 2: Parcours Académique -->
-            <div class="form-step" id="step-2">
-                <h2>Étape 2: Parcours Académique</h2>
-                <div class="form-group">
-                    <label for="etablissement">Établissement Actuel</label>
-                    <input type="text" id="etablissement" name="etablissement" required>
-                </div>
-                <div class="form-group">
-                    <label for="diplome">Diplôme Visé</label>
-                    <input type="text" id="diplome" name="diplome" required>
-                </div>
-                <div class="form-group">
-                    <label for="releves">Relevés de Notes</label>
-                    <input type="file" id="releves" name="releves" accept=".pdf,.doc,.docx" required>
-                </div>
-                <button type="button" class="btn-prev" onclick="prevStep(2)">Retour</button>
-                <button type="button" class="btn-next" onclick="nextStep(2)">Suivant</button>
-            </div>
+    <!-- Étape 2: Parcours Académique -->
+    <div class="form-step" id="step-2" style="display:none;">
+        <h2>Étape 2: Parcours Académique</h2>
+        <div class="form-group">
+            <label for="etablissement">Établissement Actuel</label>
+            <input type="text" id="etablissement" name="etablissement" required>
+        </div>
+        <div class="form-group">
+            <label for="diplome">Diplôme Visé</label>
+            <input type="text" id="diplome" name="diplome" required>
+        </div>
+        <div class="form-group">
+            <label for="releves">Relevés de Notes</label>
+            <input type="file" id="releves" name="releves" accept=".pdf,.doc,.docx" required>
+        </div>
+        <button type="button" class="btn-prev" onclick="prevStep(2)">Retour</button>
+        <button type="button" class="btn-next" onclick="nextStep(2)">Suivant</button>
+    </div>
 
-            <!-- Étape 3: Expérience et Activités -->
-            <div class="form-step" id="step-3">
-                <h2>Étape 3: Expérience et Activités Parascolaires</h2>
-                <div class="form-group">
-                    <label for="experience">Expérience Professionnelle</label>
-                    <textarea id="experience" name="experience" rows="4"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="activites">Activités Extrascolaires</label>
-                    <textarea id="activites" name="activites" rows="4" required></textarea>
-                </div>
-                <button type="button" class="btn-prev" onclick="prevStep(3)">Retour</button>
-                <button type="button" class="btn-next" onclick="nextStep(3)">Suivant</button>
-            </div>
+    <!-- Étape 3: Expérience et Activités -->
+    <div class="form-step" id="step-3" style="display:none;">
+        <h2>Étape 3: Expérience et Activités Parascolaires</h2>
+        <div class="form-group">
+            <label for="experience">Expérience Professionnelle</label>
+            <textarea id="experience" name="experience" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="activites">Activités Extrascolaires</label>
+            <textarea id="activites" name="activites" rows="4" required></textarea>
+        </div>
+        <button type="button" class="btn-prev" onclick="prevStep(3)">Retour</button>
+        <button type="button" class="btn-next" onclick="nextStep(3)">Suivant</button>
+    </div>
 
-            <!-- Étape 4: Compétences Linguistiques -->
-            <div class="form-step" id="step-4">
-                <h2>Étape 4: Compétences Linguistiques</h2>
-                <div class="form-group">
-                    <label for="langues">Langues Maîtrisées</label>
-                    <textarea id="langues" name="langues" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="certifLangue">Certificat de Langue (ex: TOEFL, IELTS)</label>
-                    <input type="file" id="certifLangue" name="certifLangue" accept=".pdf,.doc,.docx">
-                </div>
-                <button type="button" class="btn-prev" onclick="prevStep(4)">Retour</button>
-                <button type="button" class="btn-next" onclick="nextStep(4)">Suivant</button>
-            </div>
+    <!-- Étape 4: Compétences Linguistiques -->
+    <div class="form-step" id="step-4" style="display:none;">
+        <h2>Étape 4: Compétences Linguistiques</h2>
+        <div class="form-group">
+            <label for="langues">Langues Maîtrisées</label>
+            <textarea id="langues" name="langues" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="certifLangue">Certificat de Langue (ex: TOEFL, IELTS)</label>
+            <input type="file" id="certifLangue" name="certifLangue" accept=".pdf,.doc,.docx">
+        </div>
+        <div class="form-group">
+            <label for="recommandation">Lettre de Recommandation</label>
+            <input type="file" id="recommandation" name="recommandation" accept=".pdf,.doc,.docx" required>
+        </div>
+        <button type="button" class="btn-prev" onclick="prevStep(4)">Retour</button>
+        <button type="button" class="btn-next" onclick="nextStep(4)">Suivant</button>
+    </div>
 
-            <!-- Étape 5: Recommandations -->
-            <div class="form-step" id="step-5">
-                <h2>Étape 5: Recommandations</h2>
-                <div class="form-group">
-                    <label for="recommandation">Lettre de Recommandation</label>
-                    <input type="file" id="recommandation" name="recommandation" accept=".pdf,.doc,.docx" required>
-                </div>
-                <button type="button" class="btn-prev" onclick="prevStep(5)">Retour</button>
-                <button type="submit" class="btn-submit" onclick="paiement.html">soumettre et continuer</button>
-            </div>
+    <!-- Étape 5: Programme et Faculté Souhaités -->
+    <div class="form-step" id="step-5" style="display:none;">
+        <h2>Étape 5: Programme et Faculté Souhaités</h2>
+        <div class="form-group">
+            <label for="faculte">Choisissez une faculté :</label>
+            <select id="faculte" name="faculte" required>
+                <option value="">--Sélectionnez une faculté--</option>
+                <option value="arts-sciences">Faculté des Arts et des Sciences</option>
+                <option value="business">Faculté de Business (Harvard Business School)</option>
+                <option value="droit">Faculté de Droit (Harvard Law School)</option>
+                <option value="medecine">Faculté de Médecine (Harvard Medical School)</option>
+                <option value="education">Faculté d'Éducation (Harvard Graduate School of Education)</option>
+                <option value="gouvernement">Faculté de Gouvernement (Harvard Kennedy School)</option>
+                <option value="sante-publique">Faculté de Santé Publique (Harvard T.H. Chan School of Public Health)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="programme">Choisissez un programme :</label>
+            <select id="programme" name="programme" required>
+                <!-- Ajoutez ici les options des programmes, en suivant le modèle de votre exemple -->
+            </select>
+        </div>
+        <button type="button" class="btn-prev" onclick="prevStep(5)">Retour</button>
+        <button type="submit" class="btn-submit">Soumettre et continuer</button>
+    </div>
 
-           
-        </form>
+</form>
     </div>
 
     <footer>
