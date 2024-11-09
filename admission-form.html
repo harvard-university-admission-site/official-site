@@ -270,10 +270,18 @@
         </div>
         <div class="form-group">
             <label for="diplome">Diplôme Visé</label>
-            <input type="text" id="diplome" name="diplome" required>
+            
+    <select id="diplomeObtenu" name="diplomeObtenu" required>
+        <option value="">--Sélectionnez votre diplôme obtenu--</option>
+        <option value="bac">Baccalauréat</option>
+        <option value="licence">Licence</option>
+        <option value="master">Master</option>
+        <option value="doctorat">Doctorat</option>
+        <option value="autre">Autre</option>
+    </select>
         </div>
         <div class="form-group">
-            <label for="releves">Relevés de Notes</label>
+            <label for="releves">Relevés de Notes des deux dernières années (assurez-vous de télécharger un document clair et lisible) </label>
             <input type="file" id="releves" name="releves" accept=".pdf,.doc,.docx" required>
         </div>
         <button type="button" class="btn-prev" onclick="prevStep(2)">Retour</button>
@@ -303,7 +311,7 @@
             <textarea id="langues" name="langues" rows="4" required></textarea>
         </div>
         <div class="form-group">
-            <label for="certifLangue">Certificat de Langue (ex: TOEFL, IELTS)</label>
+            <label for="certifLangue">Certificat de Langue (ex: TOEFL, IELTS) facultatif</label>
             <input type="file" id="certifLangue" name="certifLangue" accept=".pdf,.doc,.docx">
         </div>
         <div class="form-group">
