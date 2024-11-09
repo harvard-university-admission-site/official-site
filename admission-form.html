@@ -334,6 +334,18 @@
             <label for="programme">Choisissez un programme :</label>
             <select id="programme" name="programme" required>
                 <!-- Ajoutez ici les options des programmes, en suivant le modèle de votre exemple -->
+                <option value="">--Sélectionnez un programme--</option>
+                <!-- Programmes de la Faculté des Arts et des Sciences -->
+               <optgroup label="Faculté des Arts et des Sciences">
+                  <option value="biologie">Biologie</option>
+                  <option value="chimie">Chimie</option>
+                  <option value="informatique">Informatique</option>
+                  <option value="economie">Économie</option>
+                  <option value="histoire">Histoire</option>
+                  <option value="philosophie">Philosophie</option>
+                  <option value="physique">Physique</option>
+                  <option value="psychologie">Psychologie</option>
+              </optgroup>
             </select>
         </div>
         <button type="button" class="btn-prev" onclick="prevStep(5)">Retour</button>
